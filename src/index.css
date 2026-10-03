@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream text-plum font-body antialiased transition-colors duration-500 dark:bg-night dark:text-pink-100; }
+  ::selection { @apply bg-blush text-plum; }
+}
+@keyframes fall {
+  from { top: -8%; transform: translateX(0) rotate(0deg); }
+  to { top: 108%; transform: translateX(var(--drift)) rotate(360deg); }
+}
+.flower {
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flower { display: none; }
+}
